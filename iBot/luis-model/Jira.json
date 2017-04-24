@@ -1,0 +1,970 @@
+{
+  "luis_schema_version": "1.3.1",
+  "versionId": "0.1",
+  "name": "Jira",
+  "desc": "Classify the words user used to interact with Jira.",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "Create"
+    },
+    {
+      "name": "Help"
+    },
+    {
+      "name": "Move"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "QueryBurnDownRate"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Bug"
+    },
+    {
+      "name": "Done"
+    },
+    {
+      "name": "Epic"
+    },
+    {
+      "name": "In Progress"
+    },
+    {
+      "name": "Story"
+    },
+    {
+      "name": "Summary"
+    },
+    {
+      "name": "Task"
+    },
+    {
+      "name": "To Do"
+    }
+  ],
+  "composites": [
+    {
+      "name": "Issue Stage",
+      "children": [
+        "To Do",
+        "Done",
+        "In Progress"
+      ]
+    },
+    {
+      "name": "IssueType",
+      "children": [
+        "Story",
+        "Epic",
+        "Task",
+        "Bug"
+      ]
+    }
+  ],
+  "closedLists": [],
+  "bing_entities": [],
+  "actions": [],
+  "model_features": [],
+  "regex_features": [
+    {
+      "name": "SummaryRegex",
+      "pattern": "\".*\"|“.*“",
+      "activated": true
+    }
+  ],
+  "utterances": [
+    {
+      "text": "create a new epic",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Epic",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "create a story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "create a new story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "create epic",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Epic",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "create a new story \"add new features\"",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Summary",
+          "startPos": 4,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "create a task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "Task",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "create a new task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Task",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "create a task \"this is the summary\"",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "Summary",
+          "startPos": 3,
+          "endPos": 8
+        },
+        {
+          "entity": "Task",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "create a task \"task name\"",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "Summary",
+          "startPos": 3,
+          "endPos": 6
+        },
+        {
+          "entity": "Task",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "create task \"do this\"",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "Summary",
+          "startPos": 2,
+          "endPos": 5
+        },
+        {
+          "entity": "Task",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "create task \"fix test error\"",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "Summary",
+          "startPos": 2,
+          "endPos": 6
+        },
+        {
+          "entity": "Task",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "create a in progress story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 2,
+          "endPos": 3
+        },
+        {
+          "entity": "In Progress",
+          "startPos": 2,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "create a todo story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "To Do",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "start a new task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Task",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "set up a new task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "Task",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "build a new story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "establish a new epic",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Epic",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "new to-do task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "To Do",
+          "startPos": 1,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 4,
+          "endPos": 4
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 3
+        },
+        {
+          "entity": "Task",
+          "startPos": 4,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "new in progress story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "In Progress",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "make a new task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Task",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "create a new bug",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Bug",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "create task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "Task",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "create in progress issue",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "In Progress",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "create an issue",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "new issue",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "start issue creation process",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "begin creating issue",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "begin creating an issue",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "new to do issue",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "To Do",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "create to do task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "To Do",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "Task",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "new to do story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "To Do",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "new done story",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "Done",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "new to do bug",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "To Do",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "Bug",
+          "startPos": 3,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "create a new to do epic",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "To Do",
+          "startPos": 3,
+          "endPos": 4
+        },
+        {
+          "entity": "Epic",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 5,
+          "endPos": 5
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 3,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "new todo task",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "To Do",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "Task",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "new story \"this should be the summary\"",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "Summary",
+          "startPos": 2,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "i want to create a new in progress story “summary”",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 8,
+          "endPos": 8
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 6,
+          "endPos": 7
+        },
+        {
+          "entity": "Summary",
+          "startPos": 9,
+          "endPos": 11
+        },
+        {
+          "entity": "In Progress",
+          "startPos": 6,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "new in progress story “this is the summary field”",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "Summary",
+          "startPos": 4,
+          "endPos": 10
+        },
+        {
+          "entity": "In Progress",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "new in progress story “this should be counted as summary“",
+      "intent": "Create",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 3,
+          "endPos": 3
+        },
+        {
+          "entity": "Issue Stage",
+          "startPos": 1,
+          "endPos": 2
+        },
+        {
+          "entity": "Summary",
+          "startPos": 4,
+          "endPos": 11
+        },
+        {
+          "entity": "In Progress",
+          "startPos": 1,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "what is the current burn down rate",
+      "intent": "QueryBurnDownRate",
+      "entities": []
+    },
+    {
+      "text": "how is the progress",
+      "intent": "QueryBurnDownRate",
+      "entities": []
+    },
+    {
+      "text": "what's the current progress",
+      "intent": "QueryBurnDownRate",
+      "entities": []
+    },
+    {
+      "text": "burn down rate",
+      "intent": "QueryBurnDownRate",
+      "entities": []
+    },
+    {
+      "text": "move a task",
+      "intent": "Move",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "Task",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "move a story",
+      "intent": "Move",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 2,
+          "endPos": 2
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 2,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "move story",
+      "intent": "Move",
+      "entities": [
+        {
+          "entity": "Story",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "move task",
+      "intent": "Move",
+      "entities": [
+        {
+          "entity": "IssueType",
+          "startPos": 1,
+          "endPos": 1
+        },
+        {
+          "entity": "Task",
+          "startPos": 1,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "what can you do?",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "hi",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "what can i ask",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "what can i do",
+      "intent": "Help",
+      "entities": []
+    }
+  ]
+}
